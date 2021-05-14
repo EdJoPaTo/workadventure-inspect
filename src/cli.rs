@@ -1,7 +1,7 @@
 use clap::{App, AppSettings, Arg};
 
 pub fn build() -> App<'static, 'static> {
-    App::new("Workadventure Inspect")
+    App::new("WorkAdventure Inspect")
         .version(env!("CARGO_PKG_VERSION"))
         .author(env!("CARGO_PKG_AUTHORS"))
         .about(env!("CARGO_PKG_DESCRIPTION"))

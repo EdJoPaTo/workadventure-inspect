@@ -1,7 +1,8 @@
 [package]
 name = "workadventure-inspect"
-description = "Inspect a workadventure map for some useful links"
+description = "Inspect a WorkAdventure map for some useful urls and Jitsi links"
 version = "0.1.0"
+license = "GPL-3.0-or-later"
 authors = ["EdJoPaTo <workadventure-inspect-rust@edjopato.de>"]
 edition = "2018"
 
