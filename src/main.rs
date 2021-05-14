@@ -88,16 +88,18 @@ fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
-fn inspect_layer(
-    workadventure_url: &Url,
-    map_base_url: &Url,
-    jitsi_prefix: &str,
-    layer: &Layer,
-) {
+fn inspect_layer(workadventure_url: &Url, map_base_url: &Url, jitsi_prefix: &str, layer: &Layer) {
     println!("Layer {}", layer.name);
     for prop in &layer.properties {
-        let value = parse_value_of_key(workadventure_url, map_base_url, jitsi_prefix, &layer.name, &prop.name, &prop.value)
-            .unwrap_or_else(|| format!("{}", prop.value));
+        let value = parse_value_of_key(
+            workadventure_url,
+            map_base_url,
+            jitsi_prefix,
+            &layer.name,
+            &prop.name,
+            &prop.value,
+        )
+        .unwrap_or_else(|| format!("{}", prop.value));
         println!("  {:25} {}", prop.name, value);
     }
 
@@ -124,9 +126,9 @@ fn parse_value_of_key(
         }
         "startLayer" => {
             if value.as_bool()? {
-            let mut url = workadventure_url.clone();
-            url.set_fragment(Some(layer_name));
-            Some(url.into())
+                let mut url = workadventure_url.clone();
+                url.set_fragment(Some(layer_name));
+                Some(url.into())
             } else {
                 None
             }
