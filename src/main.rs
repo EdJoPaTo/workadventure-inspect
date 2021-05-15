@@ -58,7 +58,7 @@ pub struct Tileset {
 fn main() -> anyhow::Result<()> {
     let matches = cli::build().get_matches();
 
-    let jitsi_host = matches.value_of("jitsi-host").unwrap();
+    let jitsi_host = matches.value_of("jitsi-host");
     let workadventure_url = Url::parse(matches.value_of("workadventure-link").unwrap())?;
 
     let segments = workadventure_url
@@ -69,7 +69,7 @@ fn main() -> anyhow::Result<()> {
     let map_url = Url::parse(&format!("https://{}", segments[2..].join("/")))?;
     let map_base_url = Url::parse(&format!("https://{}", segments[2]))?;
 
-    let jitsi_prefix = format!("{}{}", jitsi_host, instance);
+    let jitsi_prefix = format!("{}{}", jitsi_host.unwrap_or("<jitsi-server>/"), instance);
 
     eprintln!("get map url... {}", map_url);
 

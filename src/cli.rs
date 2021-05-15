@@ -12,8 +12,7 @@ pub fn build() -> App<'static, 'static> {
                 .long("jitsi-host")
                 .value_name("URL")
                 .takes_value(true)
-                .help("The host being used by the Workadventure instance")
-                .default_value("https://meet02.verstehbahnhof.de/"),
+                .help("The host being used by the Workadventure instance"),
         )
         .arg(
             Arg::with_name("workadventure-link")
