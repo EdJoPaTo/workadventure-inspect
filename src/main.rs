@@ -8,7 +8,7 @@ mod cli;
 #[derive(Debug, Deserialize)]
 pub struct Map {
     layers: Vec<Layer>,
-    version: String,
+    version: Value, // String or float?
     width: u32,
     height: u32,
     infinite: bool,
