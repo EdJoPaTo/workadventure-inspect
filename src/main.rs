@@ -1,3 +1,4 @@
+use regex::Regex;
 use serde::Deserialize;
 use serde_json::Value;
 use url::Url;
@@ -117,8 +118,12 @@ fn parse_value_of_key(
     match key {
         "jitsiRoom" => {
             let room = value.as_str()?;
-            let jitsi_link = format!("{}{}", jitsi_prefix, room.replace('-', "").to_lowercase());
-            Some(jitsi_link)
+            let suffix = Regex::new("[^\\w]+")
+                .unwrap()
+                .replace_all(&room.replace("-", ""), "-")
+                .to_lowercase();
+            let jitsi_link = format!("{}{}", jitsi_prefix, suffix);
+            Some(format!("{} -> {}", value, jitsi_link))
         }
         "openWebsite" | "playAudio" => {
             let url = parse_url(map_base_url, value.as_str()?);
