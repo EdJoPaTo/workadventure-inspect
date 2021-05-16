@@ -18,9 +18,6 @@ pub fn build() -> App<'static, 'static> {
             Arg::with_name("workadventure-link")
                 .value_name("URL")
                 .takes_value(true)
-                .help("URL to the work adventure including the map url")
-                .default_value(
-                    "https://visit.alpaka.world/_/global/wikipaka.world/alpaka-island.json",
-                ),
+                .help("URL to the work adventure including the map url"),
         )
 }
