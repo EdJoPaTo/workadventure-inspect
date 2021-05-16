@@ -1,6 +1,6 @@
 # WorkAdventure Inspect
 
-> Inspect a WorkAdventure map for some useful urls and Jitsi links
+> Inspect a WorkAdventure map for some useful URLs and Jitsi links
 
 [WorkAdventure](https://workadventu.re/) basically used [tiled](https://www.mapeditor.org/) json maps which are inspected here.
 
